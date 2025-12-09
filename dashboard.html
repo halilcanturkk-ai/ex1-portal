@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title data-i18n="customer_panel_title">EX1 Talep Paneli</title>
+  <link rel="stylesheet" href="/assets/style.css"/>
+</head>
+<body onload="initDashboard()">
+<header>
+  <div class="brand" data-i18n="brand_customer">ZIRVE <span>TRANS</span> | Müşteri Paneli</div>
+  <div class="flex">
+    <span id="who"></span>
+    <div class="lang-toggle" style="margin-right:8px">
+      <button onclick="setLang('tr')" id="lang-tr">TR</button>
+      <button onclick="setLang('en')" id="lang-en">EN</button>
+      <button onclick="setLang('fr')" id="lang-fr">FR</button>
+    </div>
+    <button class="btn secondary small" onclick="logout()" data-i18n="logout">Çıkış</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="card support">
+    <div class="wa">
+      <div class="dot"></div>
+      <div>
+        <h3 style="margin:0" data-i18n="wa_support">WhatsApp Canlı Destek</h3>
+        <div class="notice" data-i18n="wa_support_note">Operasyon ekibimiz online. Hızlı yardım için yazabilirsiniz.</div>
+      </div>
+    </div>
+    <a id="waLink" class="btn small" href="#" target="_blank" data-i18n="wa_write">WhatsApp'a Yaz</a>
+  </div>
+
+  <div class="card">
+    <h2 data-i18n="new_request">Yeni EX1 Evrak Talebi</h2>
+    <div class="row">
+      <div>
+        <label data-i18n="exit_office">Çıkış Kapısı / Gümrük Ofisi</label>
+        <input id="exitOffice" placeholder="Örn: BG005807 Sofiya Zapad"/>
+      </div>
+      <div>
+        <label data-i18n="eori_number">EORI Numarası</label>
+        <input id="eoriNumber" placeholder="Örn: FR123456789000"/>
+      </div>
+    </div>
+    <label data-i18n="notes_optional">Not (opsiyonel)</label>
+    <textarea id="notes" placeholder="Kısa açıklama..."></textarea>
+    <div class="flex" style="margin-top:10px">
+      <button class="btn" onclick="createRequest()" data-i18n="create_request">Talep Oluştur</button>
+      <span id="createMsg" class="notice"></span>
+    </div>
+    <hr/>
+    <div id="uploadArea" style="display:none">
+      <h3 data-i18n="upload_docs">Evrak Yükle</h3>
+      <input id="files" type="file" multiple />
+      <div class="flex" style="margin-top:8px">
+        <button class="btn" onclick="uploadFiles()" data-i18n="upload_btn">Dosyaları Yükle</button>
+        <span id="uploadMsg" class="notice"></span>
+      </div>
+      <p class="notice" data-i18n="upload_note">PDF, JPG, PNG, XLSX vb. yükleyebilirsiniz. Maks. 10 dosya.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 data-i18n="past_requests">Geçmiş Taleplerim</h2>
+    <table class="table">
+      <thead><tr>
+        <th data-i18n="date">Tarih</th>
+        <th data-i18n="exit_office">Çıkış Kapısı</th>
+        <th data-i18n="eori_number">EORI</th>
+        <th data-i18n="docs">Evrak</th>
+        <th data-i18n="status">Durum</th>
+        <th></th>
+      </tr></thead>
+      <tbody id="reqTable"></tbody>
+    </table>
+    <p class="notice" data-i18n="past_note">Her talepte “Evraklarım” butonuna basarak hem kendi yüklediklerinizi hem de adminin geri yüklediği evrakları indirebilirsiniz.</p>
+  </div>
+</div>
+
+<script src="/assets/app.js"></script>
+<script>applyI18n();</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title data-i18n="admin_panel_title">Admin | EX1 Portal</title>
+  <link rel="stylesheet" href="/assets/style.css"/>
+</head>
+<body onload="initAdmin()">
+<header>
+  <div class="brand" data-i18n="brand_admin">ZIRVE <span>TRANS</span> | Admin Paneli</div>
+  <div class="flex">
+    <span id="who"></span>
+    <div class="lang-toggle" style="margin-right:8px">
+      <button onclick="setLang('tr')" id="lang-tr">TR</button>
+      <button onclick="setLang('en')" id="lang-en">EN</button>
+      <button onclick="setLang('fr')" id="lang-fr">FR</button>
+    </div>
+    <button class="btn secondary small" onclick="logout()" data-i18n="logout">Çıkış</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2 data-i18n="all_requests">Tüm Talepler</h2>
+    <p class="notice" data-i18n="admin_note">Her satırda “Evraklar” butonu ile müşteri evraklarını indirip işlem sonrası kendi evraklarınızı geri yükleyebilirsiniz. Admin evrakı yüklendiğinde müşteriye otomatik mail gider.</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th data-i18n="date">Tarih</th><th data-i18n="company_name">Firma</th><th data-i18n="full_name">Yetkili</th><th data-i18n="phone">Telefon</th>
+          <th data-i18n="exit_office">Çıkış</th><th data-i18n="eori_number">EORI</th><th data-i18n="docs">Evrak</th><th data-i18n="status">Durum</th><th data-i18n="process">İşlem</th>
+        </tr>
+      </thead>
+      <tbody id="adminTable"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2 data-i18n="user_management">Kullanıcı Yönetimi / Fiyatlandırma</h2>
+    <p class="notice" data-i18n="user_note">Buradan müşterilerin fiyatını, para birimini ve hesabın aktif/pasif durumunu yönetebilirsiniz.</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th data-i18n="company_name">Firma</th>
+          <th data-i18n="full_name">Yetkili</th>
+          <th data-i18n="phone">Telefon</th>
+          <th data-i18n="email">E-posta</th>
+          <th data-i18n="price_per_request">Fiyat / Talep</th>
+          <th data-i18n="currency">Para Birimi</th>
+          <th data-i18n="active">Aktif</th>
+          <th data-i18n="save">Kaydet</th>
+        </tr>
+      </thead>
+      <tbody id="usersTable"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="/assets/app.js"></script>
+<script>applyI18n();</script>
+</body>
+</html>

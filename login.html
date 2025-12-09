@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title data-i18n="app_title">Zirve Trans EX1 Portal</title>
+  <link rel="stylesheet" href="/assets/style.css"/>
+</head>
+<body>
+<header>
+  <div class="brand" data-i18n="brand_login">ZIRVE <span>TRANS</span> | EX1 Portal</div>
+  <div class="lang-toggle">
+    <button onclick="setLang('tr')" id="lang-tr">TR</button>
+    <button onclick="setLang('en')" id="lang-en">EN</button>
+    <button onclick="setLang('fr')" id="lang-fr">FR</button>
+  </div>
+</header>
+<div class="container">
+  <div class="card">
+    <h2 data-i18n="login_title">Giriş Yap</h2>
+    <label data-i18n="phone">Telefon</label>
+    <input id="loginPhone" placeholder="90..." />
+    <label data-i18n="password">Şifre</label>
+    <input id="loginPass" type="password" placeholder="••••••" />
+    <div class="flex" style="margin-top:10px">
+      <button class="btn" onclick="login()" data-i18n="login_btn">Giriş</button>
+      <button class="btn secondary" onclick="toggleRegister()" data-i18n="register_btn">Kayıt Ol</button>
+    </div>
+    <p id="loginMsg" class="notice"></p>
+  </div>
+
+  <div id="registerCard" class="card" style="display:none">
+    <h2 data-i18n="register_title">Kayıt Ol</h2>
+    <div class="row">
+      <div>
+        <label data-i18n="company_name">Firma Adı</label>
+        <input id="regCompany" placeholder="Firma"/>
+      </div>
+      <div>
+        <label data-i18n="full_name">Yetkili Ad Soyad</label>
+        <input id="regName" placeholder="Ad Soyad"/>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label data-i18n="phone">Telefon</label>
+        <input id="regPhone" placeholder="90..."/>
+      </div>
+      <div>
+        <label data-i18n="email_optional">E-posta (opsiyonel)</label>
+        <input id="regEmail" placeholder="email@firma.com"/>
+      </div>
+    </div>
+    <label data-i18n="password">Şifre</label>
+    <input id="regPass" type="password" placeholder="Şifre"/>
+    <div class="flex" style="margin-top:10px">
+      <button class="btn" onclick="register()" data-i18n="register_complete">Kaydı Tamamla</button>
+      <button class="btn secondary" onclick="toggleRegister()" data-i18n="cancel">Vazgeç</button>
+    </div>
+    <p id="regMsg" class="notice"></p>
+  </div>
+</div>
+<script src="/assets/app.js"></script>
+<script>applyI18n();</script>
+</body>
+</html>
